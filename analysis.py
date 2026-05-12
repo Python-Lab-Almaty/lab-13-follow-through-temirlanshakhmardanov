@@ -53,9 +53,14 @@ def create_manifest():
 # ПОИСК ФАЙЛА (кейс-инсенситивный)
 # ============================================================================
 def find_log_file():
-    """Ищет log_<name>.json игнорируя регистр имени"""
     if not WORKSPACE.exists():
         return None
+
+    for f in WORKSPACE.glob('log_*.json'):
+        return f  # просто берём первый найденный лог
+
+    return None
+    """Ищет log_<name>.json игнорируя регистр имени"""
     
     for f in WORKSPACE.glob('log_*.json'):
         # Извлекаем имя из имени файла: log_Vitaliy.json -> vitaliy
@@ -145,8 +150,7 @@ def main():
     plt.tight_layout()
     
     # 7. Сохранение в output/ (адаптация для Docker)
-    output_path = WORKSPACE / f"traject_{STUDENT_ID}.png"
-    
+    output_path = WORKSPACE / "traject_temirlan.png"    
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
     plt.close()
     

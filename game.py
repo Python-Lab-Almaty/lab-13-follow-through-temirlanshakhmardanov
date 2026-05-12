@@ -8,7 +8,7 @@ import json
 # ----------------------------
 # 🟢 КОНСТАНТЫ
 # ----------------------------
-WIDTH, HEIGHT = 1200, 800
+WIDTH, HEIGHT = 1400, 900
 
 # 🟢 ИНИЦИАЛИЗАЦИЯ ЛОГА
 log = []
@@ -56,7 +56,7 @@ def load_or_create_positions(name):
     obstacles = []
     sizes = [(60, 150), (150, 60), (100, 100), (80, 200), (200, 80), (120, 120)]
     
-    for i in range(8):
+    for i in range(12):
         while True:
             x = random.randint(-450, 450)
             y = random.randint(-280, 280)
@@ -167,6 +167,7 @@ vy = 3
 # 🟢 РЕЖИМ
 # ----------------------------
 going_forward = True
+hero.color('yellow')
 
 # ----------------------------
 # 🟢 ОТРИСОВКА
